@@ -9,9 +9,9 @@ const PORT = process.env.PORT || 5050;
 const app = express();
 
 app.use(cors({
-  origin: ["https://employee-app-mern.vercel.app"],
+  origin: "https://employee-app-mern.vercel.app",
   methods: ["POST", "GET", "PATCH", "PUT", "DELETE"],
-  credentials: true
+  credentials: true,
 }));
 app.use(express.json());
 app.use("/record", records);
