@@ -55,6 +55,8 @@ export default function Record() {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            'Access-Control-Allow-Origin': "https://employee-app-mern.vercel.app",
+            'Access-Control-Allow-Credentials': "true"
           },
           body: JSON.stringify(person),
         });
