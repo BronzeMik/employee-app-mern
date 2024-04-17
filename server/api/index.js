@@ -18,6 +18,7 @@ app.use(cors({
   origin: ['*'],
   methods: ["POST", "GET", "PATCH", "PUT", "DELETE", "OPTIONS"],
   credentials: true,
+  optionsSuccessStatus: 200
 }));
 app.use(express.json());
 app.use("/record", records);
