@@ -14,11 +14,11 @@ app.use((req,res,next)=>{
   res.setHeader('Access-Control-Allow-Methods','Content-Type','Authorization');
   next(); 
 });
-app.use(cors({
-  origin: ['*'],
-  methods: ["POST", "GET", "PATCH", "PUT", "DELETE", "OPTIONS"],
-  credentials: true,
-}));
+// app.use(cors({
+//   origin: ['*'],
+//   methods: ["POST", "GET", "PATCH", "PUT", "DELETE", "OPTIONS"],
+//   credentials: true,
+// }));
 app.use(express.json());
 app.use("/record", records);
 
