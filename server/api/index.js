@@ -11,7 +11,7 @@ const app = express();
 
 app.use(cors({
   origin: ['*'],
-  methods: ["POST", "GET", "PATCH", "PUT", "DELETE", "OPTIONS"],
+  methods: ["POST", "GET", "PATCH", "PUT", "DELETE"],
   credentials: true,
   optionsSuccessStatus: 200
 }));

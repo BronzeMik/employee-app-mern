@@ -15,6 +15,15 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   let collection = await db.collection("records");
   let results = await collection.find({}).toArray();
+  res.setHeader('Access-Control-Allow-Credentials', true)
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  // another common pattern
+  // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+  )
   res.send(results).status(200);
 });
 
@@ -23,7 +32,15 @@ router.get("/:id", async (req, res) => {
   let collection = await db.collection("records");
   let query = { _id: new ObjectId(req.params.id) };
   let result = await collection.findOne(query);
-
+  res.setHeader('Access-Control-Allow-Credentials', true)
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  // another common pattern
+  // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+  )
   if (!result) res.send("Not found").status(404);
   else res.send(result).status(200);
 });
@@ -38,6 +55,15 @@ router.post("/", async (req, res) => {
     };
     let collection = await db.collection("records");
     let result = await collection.insertOne(newDocument);
+    res.setHeader('Access-Control-Allow-Credentials', true)
+    res.setHeader('Access-Control-Allow-Origin', '*')
+    // another common pattern
+    // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+    res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
+    res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+  )
     res.send(result).status(204);
   } catch (err) {
     console.error(err);
