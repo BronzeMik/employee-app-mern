@@ -17,7 +17,15 @@ export default function Record() {
       if(!id) return;
       setIsNew(false);
       const response = await fetch(
-        `https://employee-app-mern-api.vercel.app/record/${params.id.toString()}`
+        `https://employee-app-mern-api.vercel.app/record/${params.id.toString()}`, {
+          "headers": {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET,OPTIONS,PATCH,DELETE,POST,PUT',
+            'Access-Control-Allow-Credentials': true,
+            'Access-Control-Allow-Headers': 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version',
+            
+          }
+        }
       );
       if (!response.ok) {
         const message = `An error has occurred: ${response.statusText}`;
@@ -54,7 +62,11 @@ export default function Record() {
         response = await fetch("https://employee-app-mern-api.vercel.app/record", {
           method: "POST",
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET,OPTIONS,PATCH,DELETE,POST,PUT',
+            'Access-Control-Allow-Credentials': true,
+            'Access-Control-Allow-Headers': 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type,   Date, X-Api-Version',
           },
           body: JSON.stringify(person),
         });
@@ -64,6 +76,10 @@ export default function Record() {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET,OPTIONS,PATCH,DELETE,POST,PUT',
+            'Access-Control-Allow-Credentials': true,
+            'Access-Control-Allow-Headers': 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type,   Date, X-Api-Version',
           },
           body: JSON.stringify(person),
         });

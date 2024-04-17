@@ -41,7 +41,16 @@ export default function RecordList() {
   // This method fetches the records from the database.
   useEffect(() => {
     async function getRecords() {
-      const response = await fetch(`https://employee-app-mern-api.vercel.app/record/`);
+      const response = await fetch(`https://employee-app-mern-api.vercel.app/record/`, {
+        "headers": {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET,OPTIONS,PATCH,DELETE,POST,PUT',
+          'Access-Control-Allow-Credentials': true,
+          'Access-Control-Allow-Headers': 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version',
+          
+        }
+      }
+    );
       if (!response.ok) {
         const message = `An error occurred: ${response.statusText}`;
         console.error(message);
@@ -58,6 +67,13 @@ export default function RecordList() {
   async function deleteRecord(id) {
     await fetch(`https://employee-app-mern-api.vercel.app/record/${id}`, {
       method: "DELETE",
+      "headers": {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET,OPTIONS,PATCH,DELETE,POST,PUT',
+        'Access-Control-Allow-Credentials': true,
+        'Access-Control-Allow-Headers': 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version',
+        
+      }
     });
     const newRecords = records.filter((el) => el._id !== id);
     setRecords(newRecords);
