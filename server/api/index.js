@@ -8,8 +8,14 @@ dotenv.config();
 const PORT = process.env.PORT || 5050;
 const app = express();
 
+app.use((req,res,next)=>{
+  res.setHeader('Access-Control-Allow-Origin','*');
+  res.setHeader('Access-Control-Allow-Methods','GET,POST,PUT,PATCH,DELETE');
+  res.setHeader('Access-Control-Allow-Methods','Content-Type','Authorization');
+  next(); 
+});
 app.use(cors({
-  origin: ['https://employee-app-mern.vercel.app'],
+  origin: ['*'],
   methods: ["POST", "GET", "PATCH", "PUT", "DELETE"],
   credentials: true,
 }));

@@ -54,9 +54,7 @@ export default function Record() {
         response = await fetch("https://employee-app-mern-api.vercel.app/record", {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
-            'Access-Control-Allow-Origin': "https://employee-app-mern.vercel.app",
-            'Access-Control-Allow-Credentials': "true"
+            "Content-Type": "application/json"
           },
           body: JSON.stringify(person),
         });
