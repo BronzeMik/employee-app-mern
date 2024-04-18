@@ -9,12 +9,8 @@ const PORT = process.env.PORT || 5050;
 const app = express();
 
 
-app.use(cors({
-  origin: ['https://www.employee-management-app-mern.netlify.app'],
-  methods: ["POST", "GET", "PATCH", "PUT", "DELETE"],
-  credentials: true,
-  optionsSuccessStatus: 200
-}));
+app.use(cors());
+app.options('*', cors())
 app.use(express.json());
 app.use("/record", records);
 
