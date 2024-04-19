@@ -10,7 +10,8 @@ const app = express();
 
 
 app.use(cors({
-  origin: ['https://employee-management-mern.web.app/'],
+  origin: ['*'],
+  mode: 'no-cors',
   methods: ["POST", "GET", "PATCH", "PUT", "DELETE"],
   credentials: true,
   preflightContinue: true,
