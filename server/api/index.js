@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import records from "../routes/record.js";
+import router from '../routes/record';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -18,7 +18,7 @@ app.use(cors({
 }));
 app.options('*', cors())
 app.use(express.json());
-app.use("/record", records);
+app.use("/record", router);
 
 // start the Express server
 app.listen(PORT, () => {
