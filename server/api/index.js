@@ -17,7 +17,7 @@ app.use(cors({
   preflightContinue: true,
   optionsSuccessStatus: 200,
 }));
-app.options('*', cors())
+
 app.use(express.json());
 app.use("/record", router);
 
