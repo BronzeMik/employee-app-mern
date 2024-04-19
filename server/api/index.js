@@ -7,16 +7,12 @@ dotenv.config();
 
 const PORT = process.env.PORT || 5050;
 const app = express();
+const corsOptions = {
+  origin: '*',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
+}
 
-
-app.use(cors({
-  origin: ['*'],
-  methods: ["POST", "GET", "PATCH", "PUT", "DELETE"],
-  credentials: true,
-  preflightContinue: true,
-  optionsSuccessStatus: 200,
-}));
-
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use("/record", router);
 app.get('/', (req, res) => {
