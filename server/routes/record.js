@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
   if(req.method == 'OPTIONS') {
     res.status(200)
   }
-  let collection = await db.collection("records");
+  let collection = db.collection("records");
   let results = await collection.find({}).toArray();
   res.send(results).status(200);
 });
