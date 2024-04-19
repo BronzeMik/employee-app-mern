@@ -10,7 +10,7 @@ const app = express();
 
 
 app.use(cors({
-  origin: ['https://www.employee-management-app-mern.netlify.app'],
+  origin: ['https://employee-management-mern.web.app/'],
   methods: ["POST", "GET", "PATCH", "PUT", "DELETE"],
   credentials: true,
   preflightContinue: true,
