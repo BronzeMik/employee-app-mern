@@ -8,7 +8,7 @@ dotenv.config();
 const PORT = process.env.PORT || 5050;
 const app = express();
 const corsOptions = {
-  origin: 'https://employee-management-mern.web.app/',
+  origin: 'https://employee-management-mern.web.app',
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
 }
 
