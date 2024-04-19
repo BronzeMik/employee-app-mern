@@ -11,7 +11,6 @@ const app = express();
 
 app.use(cors({
   origin: ['*'],
-  mode: 'no-cors',
   methods: ["POST", "GET", "PATCH", "PUT", "DELETE"],
   credentials: true,
   preflightContinue: true,
@@ -20,6 +19,9 @@ app.use(cors({
 
 app.use(express.json());
 app.use("/record", router);
+app.get('/', (req, res) => {
+  res.send('connected').status(200)
+})
 
 // start the Express server
 app.listen(PORT, () => {
